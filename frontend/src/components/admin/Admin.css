@@ -1,0 +1,15 @@
+.card.admin-container {
+  padding: 15px;
+  border: 1px solid #ddd;
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.card:hover.admin-container {
+  background-color: #666;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}

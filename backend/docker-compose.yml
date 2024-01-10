@@ -1,0 +1,27 @@
+version: "3"
+services:
+  appserver:
+    container_name: server
+    hostname: localhost
+    image: royatali/lakesidehotel:001
+    ports:
+      - "9192:9192"
+    depends_on:
+      - mysql
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/lakeSide_hotel_db
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: admin
+
+  mysql:
+    container_name: mysql-db
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: lakeSide_hotel_db
+      MYSQL_PASSWORD: admin
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./data/var:/var/lib/mysql
+    restart: always
